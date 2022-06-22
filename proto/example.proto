@@ -1,0 +1,10 @@
+syntax = "proto3";
+package example;
+
+message SumRequest { repeated int64 numbers = 1; }
+
+message SumResponse { int64 sum = 1; }
+
+service ExampleService {
+  rpc AddNumbers(SumRequest) returns (SumResponse);
+}

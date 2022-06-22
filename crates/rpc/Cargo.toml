@@ -1,0 +1,23 @@
+[package]
+name = "rpc"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+prost = "0.10.1"
+tonic = { version = "0.7.2", default-features = false, features = [
+    "codegen",
+    "prost",
+] }
+
+[build-dependencies]
+tonic-build = { version = "0.7.0", default-features = false, features = [
+    "prost",
+] }
+prost-build = { version = "*", features = ["vendored"] }
+
+[features]
+server = ["tonic/transport", "tonic-build/transport"]
